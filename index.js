@@ -1,4 +1,3 @@
-// index.js
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
@@ -15,7 +14,7 @@ app.use(express.json());
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 
-// ✅ Health check (important for Render)
+
 app.get("/", (_, res) => {
   res.send("Chatbot API is running");
 });
@@ -38,15 +37,15 @@ app.post("/chat", async (req, res) => {
         Authorization: `Bearer ${OPENROUTER_API_KEY}`,
         "Content-Type": "application/json",
 
-        // ✅ REQUIRED / RECOMMENDED BY OPENROUTER
-        "HTTP-Referer": "https://akaki.dev", // change to your domain
+
+        "HTTP-Referer": "https://chatbot-ypfo.onrender.com/chat", 
         "X-Title": "Ako Portfolio Chatbot",
       },
       body: JSON.stringify({
         model: "openai/gpt-oss-20b:free",
         messages,
         temperature: 0.6,
-        max_tokens: 200,
+        max_tokens: 120,
       }),
     });
 
