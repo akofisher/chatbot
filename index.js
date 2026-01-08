@@ -1,8 +1,7 @@
-// index.js
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
-import fetch from "node-fetch"; // npm install node-fetch@2
+import fetch from "node-fetch";
 
 dotenv.config();
 
